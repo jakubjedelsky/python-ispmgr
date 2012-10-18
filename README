@@ -1,0 +1,8 @@
+ISPManager API Interface
+
+About:
+ISPManager is web server control panel. It allows you to manage your entire web-server through a user friendly and comprehensive multi-language web interface. With the click of a mouse you can manage users, hosting packages, mail boxes, databases and much more from one centralized location in a simple and intuitive way.
+url: http://ispsystem.com/en/
+
+API documentation:
+http://en.ispdoc.com/index.php/ISPmanager_API
