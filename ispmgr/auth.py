@@ -22,3 +22,19 @@ class Auth(object):
             raise RuntimeError('Authorization error, check your credentials')
 
         return out['auth']
+
+    def logout(self):
+        params = urllib.urlencode({
+            'auth' : self.sessid,
+            'func' : 'session.delete',
+            'out' : 'json',
+            'elid' : self.sessid,
+        })
+
+        data = urllib2.urlopen('%s?%s' % (self.url, params))
+        out = json.load(data)
+
+        if out["result"] == "OK":
+            return True
+        else:
+            raise RuntimeError('Logout failed!')
