@@ -6,3 +6,18 @@ url: http://ispsystem.com/en/
 
 API documentation:
 http://en.ispdoc.com/index.php/ISPmanager_API
+
+Examples:
+
+Authorization:
+
+  from ispmgr import Auth
+
+  url = "https://example.com/manager/ispmgr"
+  username = "your-username"
+  password = "your-password"
+
+  auth = Auth(url, username, password)
+
+  #logout
+  auth.logout()
