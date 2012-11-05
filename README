@@ -21,3 +21,8 @@ Authorization:
 
   #logout
   auth.logout()
+
+List www domains:
+
+  d = ispmgr.WWWDomain(auth)
+  domains = d.list()
