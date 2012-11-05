@@ -1,5 +1,3 @@
-import urllib
-import urllib2
 import json
 import api
 
@@ -17,6 +15,7 @@ class WWWDomain(api.API):
         }
 
     def list(self, domains=None):
+        """List all www domains. If domains is used, list details about this one."""
         if domains:
             raise NotImplementedError
 
@@ -24,4 +23,19 @@ class WWWDomain(api.API):
         data = self.process_api(self.url, self.params)
         out = json.load(data)
         return out['elem']
+
+    def add(self, domain='',  owner='', admin='', ip='', **kwargs):
+        """Add a new wwwdomain to configuration. If a DNS server is configurated, API adds
+        domain there too."""
+        self.params['sok']    = 'yes'
+        self.params['domain'] = domain
+        self.params['owner']  = owner
+        self.params['admin']  = admin
+        self.params['ip']     = ip
+        for key in kwargs:
+            self.params[key] = kwargs[key]
+
+        data = self.process_api(self.url, self.params)
+        out = json.load(data)
+        return out
 
