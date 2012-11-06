@@ -24,5 +24,7 @@ Authorization:
 
 List www domains:
 
-  d = ispmgr.WWWDomain(auth)
+  from ispmgr import WWWDomain
+
+  d = WWWDomain(auth)
   domains = d.list()
