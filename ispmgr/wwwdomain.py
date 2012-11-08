@@ -8,14 +8,22 @@ class WWWDomain(api.API):
         self.sessid = auth_handler.sessid
         self.func = 'wwwdomain.edit'
         self.out = 'json'
+        self._clear_params()
+
+    def _clear_params(self):
+        try:
+            self.params.clear()
+        except NameError:
+            pass
         self.params = {
             'auth' : self.sessid,
-            'out'  : self.out,
+            'out'  : 'json',
             'func' : self.func,
         }
 
     def list(self, domain=None):
         """List all www domains. If domains is used, list details about this one."""
+        self._clear_params()
         if domain:
             self.params['elid'] = domain
         else:
@@ -30,6 +38,7 @@ class WWWDomain(api.API):
     def add(self, domain='',  owner='', admin='', ip='', **kwargs):
         """Add a new wwwdomain to configuration. If a DNS server is configurated, API adds
         domain there too."""
+        self._clear_params()
         self.params['sok']    = 'yes'
         self.params['domain'] = domain
         self.params['owner']  = owner
