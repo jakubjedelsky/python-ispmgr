@@ -14,15 +14,18 @@ class WWWDomain(api.API):
             'func' : self.func,
         }
 
-    def list(self, domains=None):
+    def list(self, domain=None):
         """List all www domains. If domains is used, list details about this one."""
-        if domains:
-            raise NotImplementedError
-
-        self.params['func'] = 'wwwdomain'
+        if domain:
+            self.params['elid'] = domain
+        else:
+            self.params['func'] = 'wwwdomain'
         data = self.process_api(self.url, self.params)
         out = json.load(data)
-        return out['elem']
+        try:
+            return out['elem']
+        except KeyError:
+            return out
 
     def add(self, domain='',  owner='', admin='', ip='', **kwargs):
         """Add a new wwwdomain to configuration. If a DNS server is configurated, API adds

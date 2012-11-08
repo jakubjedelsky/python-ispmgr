@@ -31,5 +31,17 @@ auth.logout()
 from ispmgr import WWWDomain
 
 d = WWWDomain(auth)
+
+# list all domains
+# returns list of dicts
 domains = d.list()
+for domain in domains:
+    print domain['ip'], domain['name']
+
+# list specific domain details
+# returns dict
+domain = d.list('example.com')
+
+for key,value in domain.items():
+    print "%s: %s" % (key,value)
 ```
