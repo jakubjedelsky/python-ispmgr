@@ -27,7 +27,7 @@ class WWWDomain(api.API):
         except KeyError:
             return out
 
-    def add(self, domain='',  owner='', admin='', ip='', **kwargs):
+    def add(self, domain,  owner, admin, ip, **kwargs):
         """Add a new wwwdomain to configuration. If a DNS server is configurated, API adds
         domain there too."""
         self.params['sok']    = 'yes'
