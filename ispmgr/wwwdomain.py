@@ -13,7 +13,7 @@ class WWWDomain(api.API):
     def _clear_params(self):
         try:
             self.params.clear()
-        except NameError:
+        except (NameError,AttributeError):
             pass
         self.params = {
             'auth' : self.sessid,
