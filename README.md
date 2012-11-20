@@ -25,23 +25,42 @@ auth = Auth(url, username, password)
 auth.logout()
 ```
 
-### List www domains:
+### WWW domains:
 
+Use class WWWDomain.
 ```python
 from ispmgr import WWWDomain
 
-d = WWWDomain(auth)
+www = WWWDomain(auth)
+```
 
-# list all domains
+#### add www domain
+
+```python
+www.add(
+    domain='example.com',
+    owner='bigboss',
+    admin='webmaster@example.com.
+    ip='192.168.0.23')
+```
+
+#### list domains
+```python
 # returns list of dicts
-domains = d.list()
+domains = www.list()
 for domain in domains:
     print domain['ip'], domain['name']
 
 # list specific domain details
 # returns dict
-domain = d.list('example.com')
+domain = www.list('example.com')
 
 for key,value in domain.items():
     print "%s: %s" % (key,value)
+```
+
+#### delete domain(s)
+```python
+# delete some domains
+www.delete(['example.com', 'google.com'])
 ```
