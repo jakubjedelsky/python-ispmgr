@@ -51,3 +51,37 @@ class WWWDomain(api.API):
         out = json.load(data)
         return out
 
+    def delete(self, domain, **kwatgs):
+        """Delete one or list of domains."""
+        self._clear_params()
+        self.params['func'] = 'wwwdomain.delete'
+
+        if type(domain) is list:
+            self.params['elid'] = ', '.join(domain)
+        else:
+            self.params['elid'] = domain
+
+        data = self.process_api(self.url, self.params)
+        out = json.load(data)
+        return out
+
+    def delete_confirm(self, domain, **kwargs):
+        raise NotImplementedError
+
+    def plain(self, domain, **kwargs):
+        """View apache/nginx configs"""
+        self._clear_params()
+        self.params['func'] = 'wwwdomain.plain'
+        self.params['elid'] = domain
+
+        data = self.process_api(self.url, self.params)
+        out = json.load(data)
+        return out
+
+    def enable(self, domain, **kwargs):
+        """Enable domain."""
+        raise NotImplementedError
+
+    def disable(self, domain, **kwargs):
+        """Disable domain."""
+        raise NotImplementedError
