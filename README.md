@@ -1,4 +1,4 @@
-# ISPManager API Interface
+# ISPManager API Interface for Server Administrator
 
 ## About
 ISPManager is web server control panel. It allows you to manage your entire web-server through a user friendly and comprehensive multi-language web interface. With the click of a mouse you can manage users, hosting packages, mail boxes, databases and much more from one centralized location in a simple and intuitive way.
