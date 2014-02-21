@@ -1,5 +1,7 @@
 # ISPManager API Interface for Server Administrator
 
+## :exclamation: This is no more updated :exclamation:
+Because I stoped to work with ISPManager, there won't be more upddates. You can use it as a example how to work with ispmanager from python interface, write your own and push it to github ;)
 ## About
 ISPManager is web server control panel. It allows you to manage your entire web-server through a user friendly and comprehensive multi-language web interface. With the click of a mouse you can manage users, hosting packages, mail boxes, databases and much more from one centralized location in a simple and intuitive way.
 
